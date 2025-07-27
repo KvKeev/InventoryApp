@@ -10,6 +10,8 @@ namespace InventoryApp
     {
         static void Main(string[] args)
         {
+
+            Console.WriteLine("Probando git00");
         }
     }
 }
