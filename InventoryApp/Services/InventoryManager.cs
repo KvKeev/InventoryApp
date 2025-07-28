@@ -11,9 +11,48 @@ namespace InventoryApp.Services
     {
         private List<Product> products = new List<Product>();
 
+
+        public Product FindById(int id)
+        {
+
+            if (id < 0)
+            {
+                throw new ArgumentException("Id cannot be negative.");
+            }
+
+            if (products.Count == 0)
+            {
+                throw new InvalidOperationException("No products available.");
+            }
+
+            var product = products.FirstOrDefault(p => p.Id == id);
+
+            if (product == null)
+            {
+                throw new KeyNotFoundException($"Product with Id {id} not found.");
+            }
+
+            return product;
+        }
         public void AddProduct(Product product)
         {
-  
+            if (product == null)
+            {
+                throw new ArgumentNullException(nameof(product), "Product cannot be null.");
+            }
+
+            if (product.Id < 0)
+            {
+                throw new ArgumentException("Product Id cannot be negative.");
+            }
+
+            if (FindById(product.Id) != null)
+            {
+                throw new InvalidOperationException($"Product with Id {product.Id} already exists.");
+            }
+
+            products.Add(product);
+
         }
 
 

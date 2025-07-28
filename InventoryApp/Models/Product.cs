@@ -8,7 +8,7 @@ namespace InventoryApp.Models
 {
     public class Product
     {
-        public string Id { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; } = string.Empty;
         public int Stock { get; set; }
         public string Description { get; set; } = string.Empty;
@@ -16,7 +16,7 @@ namespace InventoryApp.Models
         public DateTime CreatedAt { get; set; } = DateTime.Now;
 
 
-        public Product (string id, string name, int stock, string description, decimal price)
+        public Product (int id, string name, int stock, string description, decimal price)
         {
             Id = id;
             Name = name;
@@ -49,7 +49,7 @@ namespace InventoryApp.Models
         {
             if (string.IsNullOrWhiteSpace(newName))
             {
-                throw new ArgumentException("Name cannot be empty or whitespace.");
+                throw new ArgumentException("Name cannot be empty.");
             }
             Name = newName;
         }
