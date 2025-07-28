@@ -46,13 +46,29 @@ namespace InventoryApp.Services
                 throw new ArgumentException("Product Id cannot be negative.");
             }
 
-            if (FindById(product.Id) != null)
+           if(products.Any(p => p.Id == product.Id))
             {
                 throw new InvalidOperationException($"Product with Id {product.Id} already exists.");
             }
 
             products.Add(product);
+        }
 
+        public void RemoveProductById(int id)
+        {
+
+            var product = FindById(id);
+            products.Remove(product);
+        }
+
+        public List<Product> GetAllProducts()
+        {
+            if (products.Count == 0)
+            {
+                throw new InvalidOperationException("No products available.");
+            }
+
+            return  new List<Product>(products);
         }
 
 
