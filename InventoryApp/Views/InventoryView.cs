@@ -1,6 +1,9 @@
-﻿using InventoryApp.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using InventoryApp.Models;
 
 namespace InventoryApp.Views
 {
@@ -13,6 +16,8 @@ namespace InventoryApp.Views
 
     public class InventoryView
     {
+
+        //view
         public void ShowMenu()
         {
             Console.Clear();
@@ -26,6 +31,7 @@ namespace InventoryApp.Views
             Console.Write("Select an option: ");
         }
 
+        //new product
         public Product GetNewProductDetails()
         {
             Console.WriteLine("\n--- NEW PRODUCT ---");
@@ -37,7 +43,6 @@ namespace InventoryApp.Views
                 price: ReadDecimal("Price: ")
             );
         }
-
         public int AskForProductId(ProductAction action)
         {
             return ReadInteger($"Enter product ID to {action.ToString().ToLower()}: ");
@@ -68,6 +73,7 @@ namespace InventoryApp.Views
             Console.WriteLine($"Description: {product.Description}");
             Console.WriteLine($"Created: {product.CreatedAt:d}");
         }
+
 
         public void ShowMessage(string message, bool isSuccess = true)
         {

@@ -1,8 +1,8 @@
-﻿using InventoryApp.Models;
+﻿using System;
+using System.Collections.Generic;
+using InventoryApp.Models;
 using InventoryApp.Services;
 using InventoryApp.Views;
-using System;
-using System.Collections.Generic;
 
 namespace InventoryApp.Controllers
 {
