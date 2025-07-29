@@ -23,7 +23,7 @@ namespace InventoryApp.Views
             Console.WriteLine("2. View All Products");
             Console.WriteLine("3. Remove Product");
             Console.WriteLine("4. Search Product");
-            Console.WriteLine("5. Update Product");
+            Console.WriteLine("5. Update Stock");
             Console.WriteLine("0. Exit");
             Console.Write("Select an option: ");
         }
@@ -78,15 +78,19 @@ namespace InventoryApp.Views
             Console.ResetColor();
         }
 
-        // Helpers
         public int ReadInteger(string prompt)
         {
             while (true)
             {
                 Console.Write(prompt);
                 if (int.TryParse(Console.ReadLine(), out int result))
+                {
                     return result;
-                ShowMessage("Invalid number. Please try again.", false);
+                }
+                else
+                {
+                    ShowMessage("Invalid number. Please try again.", false);
+                }
             }
         }
 
@@ -96,8 +100,13 @@ namespace InventoryApp.Views
             {
                 Console.Write(prompt);
                 if (decimal.TryParse(Console.ReadLine(), out decimal result))
+                {  
                     return result;
-                ShowMessage("Invalid decimal value. Please try again.", false);
+                }
+                else
+                {
+                    ShowMessage("Invalid decimal value. Please try again.", false);
+                }
             }
         }
 
@@ -108,8 +117,13 @@ namespace InventoryApp.Views
                 Console.Write(prompt);
                 string input = Console.ReadLine();
                 if (!string.IsNullOrWhiteSpace(input))
+                {
                     return input.Trim();
-                ShowMessage("Input cannot be empty.", false);
+                }
+                else
+                {
+                    ShowMessage("Input cannot be empty.", false);
+                }
             }
         }
     }
