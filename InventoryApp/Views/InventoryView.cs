@@ -6,11 +6,9 @@ namespace InventoryApp.Views
 {
     public enum ProductAction
     {
-        Add,
         Remove,
         Search,
-        Update,
-        ViewAll
+        Update
     }
 
     public class InventoryView
